@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-salmon: salmon;
+  /*zastępuje zmienną color-green-500 i przypisuje do niej salmon. className="bg-green-500"*/
+
+  --color-myFavouriteColor: gold;
+  /*tworzy zmienną --color-myFavouriteColor i przypisuje do niej gold. className="bg-myFavouriteColor"*/
+}
