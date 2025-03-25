@@ -1,4 +1,4 @@
-# Moduł 6.3 - Stan, ale trudniejszy !
+# Moduł 6.4 - Stan, ale trudniejszy ! - Portal
 
 Żeby skorzystać z kodu, pobierz repo a następnie wpisz:
 
