@@ -1,7 +1,7 @@
 import { Section } from "../Section/Section";
 import "./Main.css";
 
-export function Main({ onOpenModalClick }) {
+export function Main() {
   return (
     <main>
       <p>
@@ -9,7 +9,7 @@ export function Main({ onOpenModalClick }) {
         modal. Po kliknięciu na przycisk znajdujący się po prawej stronie, na
         ekranie powinien pojawić się modal potwierdzający wykonanie akcji.
       </p>
-      <Section onOpenModalClick={onOpenModalClick} />
+      <Section />
     </main>
   );
 }
