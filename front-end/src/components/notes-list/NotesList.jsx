@@ -5,7 +5,7 @@ import { AddNewButton } from "../add-new-button/AddNewButton";
 import { TopBar } from "../top-bar/TopBar";
 import { ShortNote } from "../short-note/ShortNote";
 import { Note } from "../note/Note";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
 
 const NotesContainer = ({ children }) => (
   <div className={styles["notes-container"]}>{children}</div>
@@ -18,46 +18,7 @@ const Notes = ({ children }) => (
 );
 
 const NotesList = () => {
-  const [notes] = useState([
-    {
-      id: 5,
-      folderId: 2,
-      title: "Albert Einstein",
-      body: "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.",
-    },
-    {
-      id: 7,
-      title: "Sun Tzu",
-      folderId: 2,
-      body: "Osiągnąć sto zwycięstw w stu bitwach nie jest szczytem umiejętności. Szczytem umiejętności jest pokonanie przeciwnika bez walki.",
-    },
-    {
-      title: "Nowa notatka",
-      body: "Tutaj wpisz treść swojej notatki alasdasdasdasdlaksjd asd ",
-      folderId: 1,
-      id: 8,
-    },
-    {
-      title: "Nowa notatka",
-      body: "Tutaj wpisz treść swojej notatki",
-      folderId: 1,
-      id: 10,
-    },
-    {
-      title: "Nowa notatkaqq",
-      body: "Tutaj wpisz treść swojej notatki",
-      folderId: 1,
-      id: 15,
-    },
-    {
-      title: "Nowa notatka",
-      body: "Tutaj wpisz treść swojej notatki",
-      folderId: 1,
-      id: 17,
-    },
-  ]);
-
-  const { folderId } = useParams();
+  const notes = useLoaderData();
 
   return (
     <NotesContainer>
@@ -68,13 +29,19 @@ const NotesList = () => {
           <AddNewButton>+</AddNewButton>
         </TopBar>
 
-        {notes
-          .filter((note) => note.folderId === Number(folderId))
-          .map((note, idx) => (
-            <ShortNote role="listitem" key={idx} note={note}></ShortNote>
-          ))}
+        {notes.map((note, idx) => (
+          <NavLink to={`/notes/${note.folderId}/note/${note.id}`} key={idx}>
+            {({ isActive }) => (
+              <ShortNote
+                role="listitem"
+                note={note}
+                active={isActive}
+              ></ShortNote>
+            )}
+          </NavLink>
+        ))}
       </Notes>
-      <Note />
+      <Outlet />
     </NotesContainer>
   );
 };
