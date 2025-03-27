@@ -11,6 +11,10 @@
     {
       "name": "Test",
       "id": 3
+    },
+    {
+      "name": "Test2",
+      "id": 4
     }
   ],
   "archive": [],
@@ -47,7 +51,7 @@
     },
     {
       "title": "Nowa notatka edit!",
-      "body": "Treść notatkiaasdawasd",
+      "body": "aacabca",
       "folderId": 3,
       "id": 16
     }

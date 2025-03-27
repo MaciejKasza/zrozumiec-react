@@ -11,6 +11,11 @@ const router = createBrowserRouter([
     element: <App />,
     path: "/",
     action: createFolder,
+    shouldRevalidate: ({ formAction }) => {
+      if (formAction === "/") return true;
+
+      return false;
+    },
     loader: () => {
       return fetch("http://localhost:3000/folders");
     },
@@ -30,6 +35,13 @@ const router = createBrowserRouter([
             path: "note/:noteId",
             element: <Note />,
             action: updateNote,
+            shouldRevalidate: ({ formAction }) => {
+              if (formAction) return false;
+              //formAction nie ma wartości jesli nie jest wykonany submit()
+              // a on się wykonuje tylko przy educji, jesli wchodizmuy po raz
+              // pierwszy to formAction nie ma
+              return true;
+            },
             loader: ({ params }) => {
               return fetch(`http://localhost:3000/notes/${params.noteId}`);
             },
