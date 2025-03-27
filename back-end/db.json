@@ -46,12 +46,6 @@
       "id": 8
     },
     {
-      "title": "Lista zakupów",
-      "body": "\n1. Herbata,\n2. Ziemianki,\n 3. Woda gazowana\n",
-      "folderId": 1,
-      "id": 10
-    },
-    {
       "title": "Kurs React - TODO",
       "body": "\n1. Napisać odcinki\n2. Nargrać odcinki",
       "folderId": 1,
@@ -62,6 +56,24 @@
       "body": "aacabca",
       "folderId": 3,
       "id": 16
+    },
+    {
+      "title": "Nowa notatka",
+      "body": "Treść notatki",
+      "folderId": 2,
+      "id": 17
+    },
+    {
+      "title": "Lista zakupów",
+      "body": "a\n1. Herbata,234\n2. Ziemianki,\n 3. Woda gazowana\n",
+      "folderId": 1,
+      "id": 18
+    },
+    {
+      "title": "Lista zakupów",
+      "body": "aa\n1. Herbata,2333aadsdasda\n2. Ziemianki,\n 3. Woda gazowana\n",
+      "folderId": 1,
+      "id": 19
     }
   ]
 }
