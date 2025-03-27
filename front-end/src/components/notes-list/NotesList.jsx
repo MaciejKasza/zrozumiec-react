@@ -9,6 +9,7 @@ import {
   Form,
   NavLink,
   Outlet,
+  redirect,
   useLoaderData,
   useParams,
 } from "react-router-dom";
@@ -32,7 +33,11 @@ export async function createNote({ params }) {
       body: "Treść notatki",
       folderId: Number(params.folderId),
     }),
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return redirect(`/notes/${data.folderId}/note/${data.id}`);
+    });
 }
 
 const NotesList = () => {

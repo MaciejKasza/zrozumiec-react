@@ -3,7 +3,7 @@ import { Folder } from "../folder/Folder";
 import { Title } from "../title/Title";
 import { TopBar } from "../top-bar/TopBar";
 import { AddNewButton } from "../add-new-button/AddNewButton";
-import { NavLink, useLoaderData, Form } from "react-router-dom";
+import { NavLink, useLoaderData, Form, redirect } from "react-router-dom";
 
 const Folders = ({ children }) => (
   <div className={styles["folders-column"]}>{children}</div>
@@ -23,7 +23,11 @@ export async function createFolder(args) {
       name: folderName,
     }),
     headers: { "Content-type": "application/json" },
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return redirect(`/notes/${data.id}`);
+    });
 }
 
 const FoldersList = () => {
