@@ -58,7 +58,6 @@ const NotesList = () => {
   ]);
 
   const { folderId } = useParams();
-  console.log(folderId);
 
   return (
     <NotesContainer>
